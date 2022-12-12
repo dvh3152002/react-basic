@@ -2,22 +2,30 @@ import React from "react";
 
 class MyComponent extends React.Component {
     state = {
-        name: 'Hiep',
-        class: 'K65CNTTB'
+        firstName: '',
+        lastName: ''
     }
 
     /*
         JSX => return 1 block
     */
 
-    handleOnChangeName = (event) => {
+    handleChangeFirstName = (event) => {
         this.setState({
-            name: event.target.value
+            firstName: event.target.value
         })
     }
 
-    handleClickButton = () => {
-        alert("Click button")
+    handleChangeLastName = (event) => {
+        this.setState({
+            lastName: event.target.value
+        })
+    }
+
+    handleClick = (event) => {
+        event.preventDefault()
+        console.log(this.state)
+        alert('click button')
     }
 
     render() {
@@ -25,14 +33,13 @@ class MyComponent extends React.Component {
             // <React.Fragment></React.Fragment>=> gõ đầy đủ
             // gõ tắt
             <>
-                <div className="first">
-                    My Component
-                </div>
-                <div><input value={this.state.name} type='text' onChange={(event) => this.handleOnChangeName(event)}></input></div>
-                <div className="second"> My name is {this.state.name}, My class is {this.state.class}</div>
-                <div className="third">
-                    <button onClick={() => this.handleClickButton()}>Click button</button>
-                </div>
+                <form action="/action_page.php">
+                    <label htmlFor="fname">First name:</label><br />
+                    <input type="text" value={this.state.firstName} onChange={(event) => { this.handleChangeFirstName(event) }} /><br />
+                    <label htmlFor="lname">Last name:</label><br />
+                    <input type="text" value={this.state.lastName} onChange={(event) => { this.handleChangeLastName(event) }} /><br /><br />
+                    <input type="submit" value="Submit" onClick={(event) => { this.handleClick(event) }} />
+                </form>
             </>
         )
     }

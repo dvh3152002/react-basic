@@ -4,7 +4,12 @@ import ChildComponent from "./ChildComponent";
 class MyComponent extends React.Component {
     state = {
         firstName: '',
-        lastName: ''
+        lastName: '',
+        arrJobs: [
+            { id: '1', title: 'Developer', salary: '500$' },
+            { id: '2', title: 'Tester', salary: '700$' },
+            { id: '3', title: 'Manager', salary: '1000$' },
+        ]
     }
 
     /*
@@ -43,8 +48,10 @@ class MyComponent extends React.Component {
                 </form>
 
                 <ChildComponent
-                    name={'child one'}
+                    name={this.state.firstName}
                     age={'25'}
+                    address={'Hưng Yên'}
+                    arrJobs={this.state.arrJobs}
                 />
             </>
         )

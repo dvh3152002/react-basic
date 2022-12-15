@@ -21,6 +21,14 @@ class MyComponent extends React.Component {
         })
     }
 
+    deleteJob = (job) => {
+        let currentJob = this.state.arrJobs
+        currentJob = currentJob.filter(item => item.id !== job.id)
+        this.setState({
+            arrJobs: currentJob
+        })
+    }
+
     render() {
         return (
             // <React.Fragment></React.Fragment>=> gõ đầy đủ
@@ -31,6 +39,7 @@ class MyComponent extends React.Component {
                 />
 
                 <ChildComponent
+                    deleteJob={this.deleteJob}
                     arrJobs={this.state.arrJobs}
                 />
             </>

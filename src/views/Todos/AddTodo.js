@@ -25,13 +25,13 @@ class AddTodo extends React.Component {
         this.setState({
             title: ''
         })
-        toast.success("Add successful!")
+        toast.success("Add successed!")
     }
 
     render() {
         return (
             <div className="todo-content">
-                <input type='text' value={this.state.title} onChange={(event) => this.handleChange(event)}></input>
+                <input type='text' value={this.state.title} onChange={(event) => this.handleChange(event)} />
                 <button className="add" onClick={() => this.handleOnClickAdd()}>Add</button>
             </div>
         )

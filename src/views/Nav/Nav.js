@@ -7,13 +7,13 @@ import {
 class Nav extends React.Component {
     render() {
         return (
-            <div>
+            <>
                 <div className="topnav">
-                    <NavLink to="/" activeClassName='active'>Home</NavLink>
-                    <NavLink to="/todos" activeClassName='active'>Todos</NavLink>
-                    <NavLink to="/about" activeClassName='active'>About</NavLink>
+                    <NavLink to="/" className={({ isActive }) => (isActive ? "active" : 'none')}>Home</NavLink>
+                    <NavLink to="/todos" className={({ isActive }) => (isActive ? "active" : 'none')}>Todos</NavLink>
+                    <NavLink to="/about" className={({ isActive }) => (isActive ? "active" : 'none')}>About</NavLink>
                 </div>
-            </div>
+            </>
         )
     }
 }

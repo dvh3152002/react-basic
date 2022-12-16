@@ -1,5 +1,6 @@
 import React from "react";
-import withRouter from "./withRouter";
+import withRouter from "../HOC/withRouter";
+import Color from "../HOC/Color";
 
 class Home extends React.Component {
     componentDidMount() {
@@ -21,4 +22,4 @@ class Home extends React.Component {
 }
 
 
-export default withRouter(Home);
+export default Color(Home);

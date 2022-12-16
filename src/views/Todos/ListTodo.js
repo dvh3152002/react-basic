@@ -38,7 +38,7 @@ class ListTodo extends React.Component {
         let checkEmpty = Object.keys(editTodo).length === 0
         let currentTodo = [...listTodo]
         if (!checkEmpty && todo.id === editTodo.id) {
-            let objIndex = currentTodo.findIndex((obj => obj.id == editTodo.id));
+            let objIndex = currentTodo.findIndex((obj => obj.id === editTodo.id));
             //Update object's name property.
             currentTodo[objIndex].title = editTodo.title
             this.setState({

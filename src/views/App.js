@@ -8,6 +8,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Nav from './Nav/Nav';
 import Home from './Example/Home';
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import rootReducer from '../store/reducers/rootReducer'
+
 import {
   BrowserRouter as Router,
   Routes,

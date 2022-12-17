@@ -13,8 +13,18 @@ class Home extends React.Component {
         // }, 3000)
     }
 
+    handleOnClickDelete = (user) => {
+        console.log('user ', user)
+        this.props.deleteUserRedux(user)
+    }
+
+    handleOnClickCreate = () => {
+        this.props.createUserRedux()
+    }
+
     render() {
-        console.log("check props ", this.props)
+        let { dataRedux } = this.props;
+        console.log("check props ", dataRedux)
         return (
             <>
                 <div>
@@ -23,15 +33,33 @@ class Home extends React.Component {
                 <div>
                     <img src={logo} />
                 </div>
+                {dataRedux && dataRedux.length > 0 &&
+                    dataRedux.map((item, index) => {
+                        return (
+                            <div key={item.id}>
+                                {index + 1} - {item.name}
+                                &nbsp;<span onClick={() => this.handleOnClickDelete(item)}>x</span>
+                            </div>
+                        )
+                    })
+                }
+                <div><button onClick={() => this.handleOnClickCreate()}>Create</button></div>
             </>
         )
     }
 }
 
-const mapStateProps = (state) => {
+const mapStateToProps = (state) => {
     return {
-        data: state.users
+        dataRedux: state.users
     }
 }
 
-export default connect(mapStateProps)(Color(Home));
+const mapDispatchToProps = (dispatch) => {
+    return {
+        deleteUserRedux: (userDelete) => dispatch({ type: 'DELETE_USER', payload: userDelete }),
+        createUserRedux: () => dispatch({ type: 'CREATE_USER' })
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Color(Home));

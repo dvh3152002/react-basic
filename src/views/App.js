@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.scss';
 import MyComponent from './Example/MyComponent';
 import ListTodo from './Todos/ListTodo';
+import ListUser from './Users/ListUser';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Nav from './Nav/Nav';
@@ -31,6 +32,7 @@ function App() {
             <Route exact path="/" element={<Home />} />
             <Route exact path="/todos" element={<ListTodo />} />
             <Route exact path="/about" element={<MyComponent />} />
+            <Route exact path='/user' element={<ListUser />} />
           </Routes >
         </header>
 

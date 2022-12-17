@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import './ListUser.scss'
+import withRouter from "../HOC/withRouter";
 
 class ListUser extends React.Component {
     state = {
@@ -19,6 +20,10 @@ class ListUser extends React.Component {
         })
     }
 
+    handleOnClickViewUser(user) {
+        this.props.router.navigate(`/user/${user.id}`)
+    }
+
     render() {
         let { listUser } = this.state
         return (
@@ -28,8 +33,8 @@ class ListUser extends React.Component {
                     {listUser && listUser.length > 0 &&
                         listUser.map((item, index) => {
                             return (
-                                <div className="child" key={item.id}>
-                                    {index + 1} - <img src={item.avatar} /> <span>- {item.first_name} - {item.last_name} - {item.email}</span>
+                                <div className="child" key={item.id} onClick={() => this.handleOnClickViewUser(item)}>
+                                    {index + 1} - {item.first_name} - {item.last_name}
                                 </div>
                             )
                         })
@@ -40,4 +45,4 @@ class ListUser extends React.Component {
     }
 }
 
-export default ListUser
+export default withRouter(ListUser);

@@ -2,15 +2,10 @@
     .list-user-content {
         .child {
             border: 1px solid;
-            width: 600px;
+            width: 300px;
             margin: 0 auto;
-            height: 80px;
-
-            img {
-                height: 60px;
-                margin-top: 5px;
-                border-radius: 50%;
-            }
+            height: 35px;
+            cursor: pointer;
         }
     }
 }

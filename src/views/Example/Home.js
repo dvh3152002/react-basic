@@ -2,6 +2,7 @@ import React from "react";
 import withRouter from "../HOC/withRouter";
 import Color from "../HOC/Color";
 import logo from "../../assets/images/logo.png"
+import { connect } from "react-redux";
 
 class Home extends React.Component {
     componentDidMount() {
@@ -27,5 +28,10 @@ class Home extends React.Component {
     }
 }
 
+const mapStateProps = (state) => {
+    return {
+        data: state.users
+    }
+}
 
-export default Color(Home);
+export default connect(mapStateProps)(Color(Home));
